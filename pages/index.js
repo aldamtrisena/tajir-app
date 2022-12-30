@@ -4,6 +4,9 @@ import Typography from "@/components/shared/Typography";
 import CurvePurple from "public/image/curve-purplr.png";
 import Image from "next/image";
 import ButtonMenu from "@/components/Button/ButtonMenu";
+import { cardEvent } from "public/static";
+import CardEvent from "@/components/Card/CardEvent";
+import CardLineUp from "@/components/Card/CardLineUp";
 
 export default function HomePage() {
   return (
@@ -34,6 +37,8 @@ export default function HomePage() {
 
       <SecondSection />
       <ThirdSection />
+      <FourtSection />
+      <FiveSection />
     </Template>
   );
 }
@@ -63,13 +68,70 @@ const SecondSection = () => {
 const ThirdSection = () => {
   return (
     <section className="bg-linearGreen py-6">
-      <div className="h-60">
-        <Typography bold className="text-2xl text-primary text-center">
+      <div className="">
+        <Typography bold className="text-2xl text-primary text-center md:text-[40px] md:mb-8">
           Schedule
         </Typography>
-        <div className="flex justify-center px-4 mt-4">
-          <ButtonMenu>27 Januari 2023</ButtonMenu>
-          <ButtonMenu>27 Januari 2023</ButtonMenu>
+        <div className="flex justify-center  px-4 mt-4">
+          <div className="flex-grow">
+            <ButtonMenu>27 Januari 2023</ButtonMenu>
+          </div>
+          <div className="md:hidden flex-grow">
+            <ButtonMenu>27 Januari 2023</ButtonMenu>
+          </div>
+        </div>
+        <div className="px-4 mt-4 md:px-24">
+          {cardEvent.map((el, i) => {
+            return <CardEvent key={i} data={el} />;
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const FourtSection = () => {
+  return (
+    <section className="my-6">
+      <div className="my-6">
+        <Typography bold className="text-2xl text-primary text-center md:text-[40px] md:mb-8">
+          Lineup
+        </Typography>
+      </div>
+      {/* <div
+        className="grid  grid-cols-2  justify-items-center content-center
+      md:grid-cols-4 md:px-12 "
+      > */}
+      <div className="flex flex-wrap px-8 justify-center items-center gap-4 ">
+        <CardLineUp />
+        <CardLineUp />
+        <CardLineUp />
+        <CardLineUp />
+        <CardLineUp />
+        <CardLineUp />
+        <CardLineUp />
+        <CardLineUp />
+      </div>
+    </section>
+  );
+};
+
+const FiveSection = () => {
+  return (
+    <section className="bg-linearGreen py-6">
+      <div className="">
+        <Typography bold className="text-2xl text-primary text-center md:text-[40px] md:mb-8">
+          WorkShop
+        </Typography>
+        <div className="px-4 mt-4">
+          <div className="md:hidden">
+            <ButtonMenu>27 Januari 2023</ButtonMenu>
+          </div>
+        </div>
+        <div className="px-4 mt-4 md:px-24">
+          {cardEvent.map((el, i) => {
+            return <CardEvent key={i} data={el} />;
+          })}
         </div>
       </div>
     </section>

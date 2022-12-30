@@ -28,7 +28,9 @@ const ButtonMenu = ({ children }) => {
     <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
       <button
         onClick={handleOpenNavMenu}
-        className="bg-transparent border-primary border rounded-[30px] text-primary text-xs  px-4 w-40 box-border py-3 md:px-14 md:py-3 md:text-lg font-medium md:font-semibold"
+        className="bg-transparent border-primary border rounded-[30px]
+         text-primary text-xs  px-4 w-40 md:w-auto box-border py-3 md:px-14 
+         md:py-3 md:text-lg font-medium md:font-semibold"
       >
         {children} <ExpandMoreIcon />
       </button>
