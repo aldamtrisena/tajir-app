@@ -29,10 +29,12 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
   return (
-    <nav maxWidth="lg" fixed className=" fixed box-border px-4 w-full top-4 md:px-8">
-      <div className="flex justify-between items-center py-0 w-[100%] bg-white shadow-md px-3 md:px-12 rounded-lg">
+    <nav maxWidth="lg" fixed className="z-50 fixed box-border px-4 w-full top-4 md:px-8">
+      <div className="flex justify-between items-center py-1 w-[100%] bg-white shadow-md px-3 md:px-12 rounded-lg">
         <div>
-          <Image src={ImageLogo} alt={"logo tajir"} width={80} height={30} />
+          <div className="w-14 md:w-20">
+            <Image src={ImageLogo} alt={"logo tajir"} />
+          </div>
         </div>
         <div className="gap-16 hidden md:flex">
           <Link isActive>Beranda</Link>

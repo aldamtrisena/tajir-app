@@ -1,9 +1,13 @@
 import PropTypes from "prop-types";
+import { twMerge } from "tailwind-merge";
 
-const Typography = ({ primary, xs, sm, /*14px*/ lg, medium, semibold, bold, thin, children, className, head1 }) => {
-  const styled = `text-base ${primary ? "text-primary" : "text-standart"} ${xs && "text-xs"} ${sm && "text-sm"} 
-  ${lg && "text-lg"} ${thin && "font-light"} ${medium && "font-medium"} ${semibold && "font-semibold"} 
-  ${bold && "font-bold"} ${className}`;
+const Typography = ({ primary, xs, sm, /*14px*/ lg, xl, medium, semibold, bold, thin, children, className, head1 }) => {
+  const styled = twMerge(`text-sm md:text-base ${primary ? "text-primary" : "text-standart"} ${xs ? "text-xs" : ""} 
+  ${sm ? "text-sm" : ""} ${lg ? "text-lg" : ""} ${xl ? "text-xl" : ""} ${thin ? "font-light" : ""} ${
+    medium ? "font-medium" : ""
+  } 
+  ${semibold ? "font-semibold" : ""} 
+  ${bold ? "font-bold" : ""} , ${className}`);
 
   return <>{head1 ? <h1 className={styled}>{children}</h1> : <p className={styled}>{children}</p>}</>;
 };
@@ -13,6 +17,7 @@ Typography.propTypes = {
   xs: PropTypes.bool,
   sm: PropTypes.bool,
   lg: PropTypes.bool,
+  xl: PropTypes.bool,
   medium: PropTypes.bool,
   semibold: PropTypes.bool,
   bold: PropTypes.bool,

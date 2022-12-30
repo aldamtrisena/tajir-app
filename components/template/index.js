@@ -7,7 +7,6 @@ const Template = ({ children }) => {
   return (
     <main>
       <Navbar />
-      {/* <ResponsiveAppBar /> */}
       <div>{children}</div>
       <Footer />
     </main>
