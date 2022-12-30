@@ -4,6 +4,7 @@ import Typography from "@/components/shared/Typography";
 import CurvePurple from "public/image/curve-purplr.png";
 import Image from "next/image";
 import ButtonMenu from "@/components/Button/ButtonMenu";
+
 export default function HomePage() {
   return (
     <Template>
