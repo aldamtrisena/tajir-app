@@ -21,7 +21,9 @@ const theme = createTheme({
     error: {
       main: red.A400,
     },
-    blacked: {},
+    disabled: {
+      main: "#6C6C6C",
+    },
   },
   typography: {
     fontFamily: poppins.style.fontFamily,

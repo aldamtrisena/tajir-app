@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ButtonPrimary from "./Button/ButtonPrimary";
-import Link from "@/components/shared/Link";
+import TextLink from "@/components/shared/Link";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -29,7 +29,7 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
   return (
-    <nav maxWidth="lg" fixed className="z-50 fixed box-border px-4 w-full top-4 md:px-8">
+    <nav className="z-50 fixed box-border px-4 w-full top-4 md:px-8">
       <div className="flex justify-between items-center py-1 w-[100%] bg-white shadow-md px-3 md:px-12 rounded-lg">
         <div>
           <div className="w-14 md:w-20">
@@ -37,10 +37,12 @@ const Navbar = () => {
           </div>
         </div>
         <div className="gap-16 hidden md:flex">
-          <Link isActive>Beranda</Link>
-          <Link>Tentang</Link>
-          <Link>Workshop</Link>
-          <Link>FAQ</Link>
+          <TextLink isActive href="#">
+            Beranda
+          </TextLink>
+          <TextLink href="#">Tentang</TextLink>
+          <TextLink href="#">Workshop</TextLink>
+          <TextLink href="#">FAQ</TextLink>
         </div>
         <div className="flex">
           <ButtonPrimary>Beli Tiket</ButtonPrimary>
