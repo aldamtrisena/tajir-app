@@ -5,7 +5,7 @@ import ButtonPrimary from "../Button/ButtonPrimary";
 const CardEvent = ({ data }) => {
   return (
     <div
-      className="bg-cardEvent md:my-5 rounded-md px-4 py-3 my-2 md:flex md:items-center md:justify-between
+      className="bg-greenCard md:my-5 rounded-md px-4 py-3 my-2 md:flex md:items-center md:justify-between
     md:px-8 md:py-6"
     >
       <Typography xs>{data.hour}</Typography>

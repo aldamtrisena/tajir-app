@@ -1,7 +1,5 @@
-import Template from "@/components/template";
-import BgImage from "public/image/imagebg.png";
+import Layout from "@/components/template";
 import Typography from "@/components/shared/Typography";
-import CurvePurple from "public/image/curve-purplr.png";
 import Image from "next/image";
 import ButtonMenu from "@/components/Button/ButtonMenu";
 import { cardEvent, dataLineUp, dataTenant, dataTiket, dataWorkShop } from "public/static";
@@ -10,20 +8,22 @@ import CardSecondary from "@/components/Card/CardSecondary";
 import { ImageAMG, ImageGratyo, ImageTdp, ImageBSI, ImageMax, ImageOtego, ImageTokped } from "public/image/index";
 import CardPrimary from "@/components/Card/CardPrimary";
 import CardTiket from "@/components/Card/CardTiket";
+import FilterButton from "@/components/shared/FilterButton";
+import { useState } from "react";
 
 export default function HomePage() {
   return (
-    <Template>
+    <Layout>
       <section>
         <div className="bg-scroll flex justify-center items-center bg-center bg-cover bg-red-50 bg-home_page h-60 w-full md:h-[38rem]">
-          <Typography semibold className={"md:text-[7rem] text-xl text-white"} head1>
+          <Typography semibold className={"xl:text-[7rem] text-xl text-white"} head1>
             Takjub Akbar
           </Typography>
         </div>
       </section>
 
-      <section>
-        <div className="w-full h-14 flex justify-between items-center px-4 box-border md:px-24">
+      <section className="w-full ">
+        <div className="w-full h-14 flex justify-between items-center px-4 box-border md:px-2 xl:max-w-screen-xl mx-auto">
           <Typography medium className="hidden md:block">
             {"LET'S MAKE IT REAL"}
           </Typography>
@@ -37,15 +37,14 @@ export default function HomePage() {
           </Typography>
         </div>
       </section>
-
       <SecondSection />
-      <ThirdSection />
+      <ScheduleSection />
       <LineUpSection />
       <WorkShopSection />
       <TiketPriceSection />
       <TenantSection />
       <SponsorsSection />
-    </Template>
+    </Layout>
   );
 }
 
@@ -71,19 +70,45 @@ const SecondSection = () => {
   );
 };
 
-const ThirdSection = () => {
+const ScheduleSection = () => {
+  const [filter, setFilter] = useState("Semua");
+  const [filterDate, setFilterDate] = useState("27 Januari 2023");
   return (
     <section className="bg-linearGreen py-6">
-      <div className="">
+      <div className="xl:max-w-screen-xl mx-auto">
         <Typography bold className="text-2xl text-primary text-center md:text-[40px] md:mb-8">
           Schedule
         </Typography>
-        <div className="flex justify-center  px-4 mt-4">
+        <div className="hidden md:grid place-content-center w-full mt-12 mb-8">
+          <FilterButton
+            onChange={setFilter}
+            value={filter}
+            data={[{ name: "Semua" }, { name: "Plenary" }, { name: "Workshop" }, { name: "Bincang Dagang" }]}
+          />
+        </div>
+        <div className="flex justify-center px-4 mt-4 md:px-24 gap-6">
           <div className="flex-grow">
-            <ButtonMenu>27 Januari 2023</ButtonMenu>
+            <ButtonMenu
+              onChange={setFilterDate}
+              value={filterDate}
+              data={[
+                { name: "27 Januari 2023" },
+                { name: "28 Januari 2023" },
+                { name: "29 Januari 2023" },
+                { name: "23 Januari 2023" },
+              ]}
+            >
+              {filterDate}
+            </ButtonMenu>
           </div>
-          <div className="md:hidden flex-grow">
-            <ButtonMenu>27 Januari 2023</ButtonMenu>
+          <div className="flex md:hidden flex-grow">
+            <ButtonMenu
+              onChange={setFilter}
+              value={filter}
+              data={[{ name: "Semua" }, { name: "Plenary" }, { name: "Workshop" }, { name: "Bincang Dagang" }]}
+            >
+              {filter}
+            </ButtonMenu>
           </div>
         </div>
         <div className="px-4 mt-4 md:px-24">
@@ -98,7 +123,7 @@ const ThirdSection = () => {
 
 const LineUpSection = () => {
   return (
-    <section className="my-6">
+    <section className="my-6 xl:max-w-screen-xl xl:mx-auto">
       <div className="my-6">
         <Typography bold className="text-2xl text-primary text-center md:text-[40px] md:mb-8">
           Lineup
@@ -114,15 +139,35 @@ const LineUpSection = () => {
 };
 
 const WorkShopSection = () => {
+  const [filterDate, setFilterDate] = useState("27 Januari 2023");
+
   return (
     <section className="bg-linearGreen pt-6 md:pt-12 pb-[22rem] md:pb-[17rem] relative z-10">
       <div className="">
         <Typography bold className="text-2xl text-primary text-center md:text-[40px] md:mb-8">
           Workshop
         </Typography>
+        <div className="hidden md:grid place-content-center w-full mt-12 mb-8">
+          <FilterButton
+            onChange={setFilterDate}
+            value={filterDate}
+            data={[{ name: "27 Januari 2023" }, { name: "28 Januari 2023" }, { name: "29 Januari 2023" }]}
+          />
+        </div>
         <div className="px-4 mt-4">
           <div className="md:hidden">
-            <ButtonMenu>27 Januari 2023</ButtonMenu>
+            <ButtonMenu
+              onChange={setFilterDate}
+              value={filterDate}
+              data={[
+                { name: "27 Januari 2023" },
+                { name: "28 Januari 2023" },
+                { name: "29 Januari 2023" },
+                { name: "23 Januari 2023" },
+              ]}
+            >
+              {filterDate}
+            </ButtonMenu>
           </div>
         </div>
         <div className="px-4 mt-4 md:px-24 py-8 flex overflow-x-scroll gap-3 md:gap-8 snap-x snap-mandatory no-scrollbar">
@@ -167,15 +212,17 @@ const TiketPriceSection = () => {
 const TenantSection = () => {
   return (
     <section className="my-6 md:mt-20">
-      <div className="my-6">
-        <Typography bold className="text-2xl text-primary text-center md:text-[2.5rem] md:mb-8">
-          Tenant
-        </Typography>
-      </div>
-      <div className="flex flex-wrap px-8 justify-center items-center gap-4 ">
-        {dataTenant.map((el, index) => {
-          return <CardSecondary key={index} nama={el.name} foto={el.image} />;
-        })}
+      <div className="xl:max-w-screen-xl mx-auto">
+        <div className="my-6">
+          <Typography bold className="text-2xl text-primary text-center md:text-[2.5rem] md:mb-8">
+            Tenant
+          </Typography>
+        </div>
+        <div className="flex flex-wrap px-8 justify-center items-center gap-4 ">
+          {dataTenant.map((el, index) => {
+            return <CardSecondary key={index} nama={el.name} foto={el.image} />;
+          })}
+        </div>
       </div>
     </section>
   );
@@ -184,43 +231,45 @@ const TenantSection = () => {
 const SponsorsSection = () => {
   return (
     <section className="bg-primary py-6 md:py-14">
-      <div>
-        <Typography bold center className="text-white text-2xl md:text-[2.5rem]">
-          Sponsor
-        </Typography>
-      </div>
-      <div className="mt-0 md:my-11">
-        <Typography center className="text-white text-base my-6">
-          Main Sponsors
-        </Typography>
-        <div className="flex px-6 justify-between items-center md:justify-evenly">
-          <div className="w-28 md:w-60">
-            <Image src={ImageBSI} alt="sponsor" style={{ objectFit: "fill" }} />
-          </div>
-          <div className="w-20 md:w-28">
-            <Image src={ImageTokped} alt="sponsor" />
-          </div>
-          <div className="w-28 md:w-56">
-            <Image src={ImageMax} alt="sponsor" style={{ objectFit: "fill" }} />
+      <div className="xl:max-w-screen-xl xl:mx-auto">
+        <div>
+          <Typography bold center className="text-white text-2xl md:text-[2.5rem]">
+            Sponsor
+          </Typography>
+        </div>
+        <div className="mt-0 md:my-11">
+          <Typography center className="text-white text-base my-6">
+            Main Sponsors
+          </Typography>
+          <div className="flex px-6 justify-between items-center md:justify-evenly">
+            <div className="w-28 md:w-60">
+              <Image src={ImageBSI} alt="sponsor" style={{ objectFit: "fill" }} />
+            </div>
+            <div className="w-20 md:w-28">
+              <Image src={ImageTokped} alt="sponsor" />
+            </div>
+            <div className="w-28 md:w-56">
+              <Image src={ImageMax} alt="sponsor" style={{ objectFit: "fill" }} />
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <Typography center className="text-white text-base mb-6 mt-9 md:mt-24">
-          Supporting Sponsors
-        </Typography>
-        <div className="flex px-6 justify-between items-center md:justify-evenly md:mt-12">
-          <div className="w-16 md:w-32">
-            <Image src={ImageTdp} alt="sponsor" />
-          </div>
-          <div className="w-16 md:w-32">
-            <Image src={ImageGratyo} alt="sponsor" />
-          </div>
-          <div className="w-16 md:w-32">
-            <Image src={ImageOtego} alt="sponsor" />
-          </div>
-          <div className="w-16 md:w-32">
-            <Image src={ImageAMG} alt="sponsor" />
+        <div>
+          <Typography center className="text-white text-base mb-6 mt-9 md:mt-24">
+            Supporting Sponsors
+          </Typography>
+          <div className="flex px-6 justify-between items-center md:justify-evenly md:mt-12">
+            <div className="w-16 md:w-32">
+              <Image src={ImageTdp} alt="sponsor" />
+            </div>
+            <div className="w-16 md:w-32">
+              <Image src={ImageGratyo} alt="sponsor" />
+            </div>
+            <div className="w-16 md:w-32">
+              <Image src={ImageOtego} alt="sponsor" />
+            </div>
+            <div className="w-16 md:w-32">
+              <Image src={ImageAMG} alt="sponsor" />
+            </div>
           </div>
         </div>
       </div>

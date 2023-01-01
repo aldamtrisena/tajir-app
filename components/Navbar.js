@@ -2,15 +2,22 @@ import { useState } from "react";
 import Image from "next/image";
 import ImageLogo from "public/image/logo.png";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import { Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ButtonPrimary from "./Button/ButtonPrimary";
 import TextLink from "@/components/shared/Link";
+import { useRouter } from "next/router";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = [
+  { page: "Beranda", route: "/" },
+  { page: "Tentang", route: "/about" },
+  { page: "Workshop", route: "/workshop" },
+  { page: "Faq", route: "/faq" },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const Navbar = () => {
+  const { pathname } = useRouter();
+  const current_path = pathname.split("/").join("");
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -29,20 +36,29 @@ const Navbar = () => {
     setAnchorElUser(null);
   };
   return (
-    <nav className="z-50 fixed box-border px-4 w-full top-4 md:px-8">
-      <div className="flex justify-between items-center py-1 w-[100%] bg-white shadow-md px-3 md:px-12 rounded-lg">
+    <header className="z-50 fixed box-border px-4 top-4 left-0 right-0 h-auto md:px-8">
+      <div
+        className="flex justify-between items-center py-1 w-[100%] bg-white 
+      shadow-md px-3 md:px-12 rounded-lg mx-auto xl:max-w-screen-xl"
+      >
         <div>
           <div className="w-14 md:w-20">
             <Image src={ImageLogo} alt={"logo tajir"} />
           </div>
         </div>
         <div className="gap-16 hidden md:flex">
-          <TextLink isActive href="#">
+          <TextLink isActive={current_path === ""} href="/">
             Beranda
           </TextLink>
-          <TextLink href="#">Tentang</TextLink>
-          <TextLink href="#">Workshop</TextLink>
-          <TextLink href="#">FAQ</TextLink>
+          <TextLink href="/about" isActive={current_path === "about"}>
+            Tentang
+          </TextLink>
+          <TextLink href="/workshop" isActive={current_path === "workshop"}>
+            Workshop
+          </TextLink>
+          <TextLink href="/faq" isActive={current_path === "faq"}>
+            FAQ
+          </TextLink>
         </div>
         <div className="flex">
           <ButtonPrimary>Beli Tiket</ButtonPrimary>
@@ -75,16 +91,18 @@ const Navbar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((el, i) => (
+                <MenuItem key={i} onClick={handleCloseNavMenu}>
+                  <TextLink href={el.route} isActive={pathname === el.route}>
+                    {el.page}
+                  </TextLink>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 

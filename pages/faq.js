@@ -1,11 +1,11 @@
-import Template from "@/components/template";
+import Layout from "@/components/template/";
 import React from "react";
 
 const Faq = () => {
   return (
-    <Template>
+    <Layout>
       <div className="mt-32 md:mt-40">Faq</div>;
-    </Template>
+    </Layout>
   );
 };
 

@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import ResponsiveAppBar from "../AppBar";
 import Footer from "@/components/Footer";
 
-const Template = ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <main>
       <Navbar />
@@ -13,4 +13,4 @@ const Template = ({ children }) => {
   );
 };
 
-export default Template;
+export default Layout;

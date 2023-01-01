@@ -22,3 +22,8 @@ export { default as Card1 } from "public/image/card-wo-1.png";
 export { default as Card2 } from "public/image/card-wo-2.png";
 export { default as Card3 } from "public/image/card-wo-3.png";
 export { default as Card4 } from "public/image/card-wo-4.png";
+
+export { default as CardMove1 } from "public/image/card-move1.png";
+export { default as CardMove2 } from "public/image/card-move2.png";
+export { default as CardMove3 } from "public/image/card-move3.png";
+export { default as CardMove4 } from "public/image/card-move4.png";

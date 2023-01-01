@@ -6,7 +6,7 @@ import Typography from "@/components/shared/Typography";
 
 const pages = ["Productssdsd sdsd", "Pricing"];
 
-const ButtonMenu = ({ children }) => {
+const ButtonMenu = ({ data = [], onChange, value, children }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -17,7 +17,8 @@ const ButtonMenu = ({ children }) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (name) => {
+    onChange(typeof name === "string" ? name : value);
     setAnchorElNav(null);
   };
 
@@ -25,12 +26,12 @@ const ButtonMenu = ({ children }) => {
     setAnchorElUser(null);
   };
   return (
-    <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
+    <Box sx={{ display: "flex", flex: 1 }}>
       <button
         onClick={handleOpenNavMenu}
         className="bg-transparent border-primary border rounded-[30px]
-         text-primary text-xs  px-4 w-40 md:w-auto box-border py-3 md:px-14 
-         md:py-3 md:text-lg font-medium md:font-semibold"
+         text-primary text-xs  px-4 md:w-auto box-border py-2 
+         md:py-2 md:px-8 md:text-lg font-medium md:font-semibold w-44"
       >
         {children} <ExpandMoreIcon />
       </button>
@@ -76,9 +77,11 @@ const ButtonMenu = ({ children }) => {
           },
         }}
       >
-        {pages.map((page) => (
-          <MenuItem key={page} onClick={handleCloseNavMenu}>
-            <Typography className={"hover:text-red-300"}>{page}</Typography>
+        {data.map((el, i) => (
+          <MenuItem key={i} onClick={() => handleCloseNavMenu(el.name)}>
+            <Typography className={"hover:text-red-300"} primary={el.name === value}>
+              {el.name}
+            </Typography>
           </MenuItem>
         ))}
       </Menu>

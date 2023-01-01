@@ -16,7 +16,11 @@ module.exports = {
       colors: {
         primary: "#840A8B",
         standart: "#2A3242",
-        cardEvent: "#EAF1C1",
+        greenCard: "#EAF1C1",
+      },
+
+      maxWidth: {
+        xl: "1344px",
       },
     },
   },

@@ -11,6 +11,20 @@
   scrollbar-width: none;
 }
 
+.box-description::after {
+  content: "";
+  background: #eaf1c1;
+  height: 23rem;
+  right: -20rem;
+  position: absolute;
+  top: 0rem;
+  width: 100%;
+  z-index: -1;
+  padding-bottom: 6rem;
+  padding-top: 3.5rem;
+  height: 100%;
+}
+
 .ticket-container,
 .ticket-container::before,
 .ticket-container::after,

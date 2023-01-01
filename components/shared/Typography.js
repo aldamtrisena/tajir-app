@@ -22,7 +22,7 @@ const Typography = ({
   ${thin ? "font-light" : ""} ${medium ? "font-medium" : ""} 
   ${semibold ? "font-semibold" : ""} 
   ${center ? "text-center" : ""} 
-  ${bold ? "font-bold" : ""} , ${className}`);
+  ${bold ? "font-bold" : ""} , ${className ? className : ""}`);
 
   return <>{head1 ? <h1 className={styled}>{children}</h1> : <p className={styled}>{children}</p>}</>;
 };
