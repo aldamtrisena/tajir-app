@@ -27,3 +27,19 @@ export { default as CardMove1 } from "public/image/card-move1.png";
 export { default as CardMove2 } from "public/image/card-move2.png";
 export { default as CardMove3 } from "public/image/card-move3.png";
 export { default as CardMove4 } from "public/image/card-move4.png";
+
+export { default as Gallery1 } from "public/image/gallery 37.png";
+export { default as Gallery2 } from "public/image/gallery 38.png";
+export { default as Gallery3 } from "public/image/gallery 39.png";
+export { default as Gallery4 } from "public/image/gallery 40.png";
+
+export { default as CirclePurple } from "public/image/circle-gallery.png";
+export { default as CircleLeft } from "public/image/circle-left.png";
+export { default as CircleRight } from "public/image/caircle-card1.png";
+export { default as LinearIcon } from "public/image/Meliuk-liuk.png";
+export { default as Dots } from "public/image/Titik-titik.png";
+export { default as LinearStraight } from "public/image/Meliuk-liuk-2.png";
+
+export { default as Substract1 } from "public/image/Subtract-1.png";
+export { default as Substract2 } from "public/image/Subtract-2.png";
+export { default as Substract3 } from "public/image/Subtract.png";
