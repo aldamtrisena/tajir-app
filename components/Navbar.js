@@ -39,10 +39,10 @@ const Navbar = () => {
     <header className="z-50 fixed box-border px-4 top-4 left-0 right-0 h-auto md:px-8">
       <div
         className="flex justify-between items-center py-1 w-[100%] bg-white 
-      shadow-md px-3 md:px-12 rounded-lg mx-auto xl:max-w-screen-xl"
+      shadow-md px-3 md:px-12 rounded-lg mx-auto 2xl:max-w-screen-2xl"
       >
         <div>
-          <div className="w-14 md:w-20">
+          <div className="w-14 md:w-16">
             <Image src={ImageLogo} alt={"logo tajir"} />
           </div>
         </div>

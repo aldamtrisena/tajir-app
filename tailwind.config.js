@@ -8,6 +8,7 @@ module.exports = {
         green_third: "url('/image/bg-green.png')",
         curve_purple: "url('/image/curve-purple.png')",
         linearGreen: "linear-gradient(270deg, #C5DB41 0%, #B4C73C 100%);",
+        woHead: "url('/image/bg-wo-headers.png')",
       },
       backgroundColor: {
         primary: "#840A8B",

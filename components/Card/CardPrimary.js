@@ -17,11 +17,12 @@ const ActionArea = styled(CardActionArea)(({ theme }) => ({
   justifyContent: "flex-start",
 }));
 
-export default function CardPrimary({ data }) {
+export default function CardPrimary({ data, small }) {
   return (
     <Card
       sx={{
-        minWidth: { xs: "250px", md: "324px" },
+        minWidth: { xs: `${small ? "" : "250px"}`, md: `${small ? "" : "324px"}` },
+        width: { xs: `${small ? "100%" : ""}`, md: `${small ? "380px" : ""}` },
         // maxHeight: { xs: "306px" },
         scrollSnapAlign: "center",
         borderRadius: "20px",
@@ -31,12 +32,12 @@ export default function CardPrimary({ data }) {
       }}
     >
       <ActionArea>
-        <div className="h-36 md:h-48">
+        <div className={`${small ? "md:h-56" : "h-36 md:h-48"}`}>
           <Image src={data.image} alt="Card" />
         </div>
         {/* <CardMedia component="img" height="140" image={data.image} alt="green iguana" /> */}
         <div className="p-3 md:py-4 md:px-6">
-          <Typography md semibold>
+          <Typography md={!small} semibold>
             {data.name}
           </Typography>
           <div className="flex gap-2 mt-3">
@@ -48,7 +49,9 @@ export default function CardPrimary({ data }) {
             <Typography className="text-gray-500">{data.jam}</Typography>
           </div>
           <div>
-            <Typography className="mt-2 line-clamp-5">{data.description}</Typography>
+            <Typography className={`mt-2 line-clamp-5 ${small ? "text-[10px]" : "text-xs"}`}>
+              {data.description}
+            </Typography>
           </div>
         </div>
       </ActionArea>

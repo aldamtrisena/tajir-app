@@ -1,9 +1,9 @@
 import React from "react";
 import Typography from "./Typography";
 
-const FilterButton = ({ data = [], value, onChange }) => {
+const FilterButton = ({ data = [], value, onChange, border }) => {
   return (
-    <div className="bg-white rounded-[50px] px-1">
+    <div className={`bg-white rounded-[50px] px-1 ${border ? "border border-primary" : ""}`}>
       <div className="flex py-1 justify-between items-center gap-4">
         {data.map((el, index) => {
           return (

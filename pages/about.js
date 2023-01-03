@@ -1,12 +1,28 @@
 import Typography from "@/components/shared/Typography";
 import Layout from "@/components/template";
 import Image from "next/image";
-import { CardMove1, CardMove2, CardMove3, CardMove4 } from "public/image";
+import {
+  CardMove1,
+  CardMove2,
+  CardMove3,
+  CardMove4,
+  Gallery1,
+  Gallery2,
+  Gallery3,
+  Gallery4,
+  CirclePurple,
+  CircleLeft,
+  CircleRight,
+  LinearIcon,
+  LinearStraight,
+  Dots,
+} from "public/image";
 
 export default function AboutPage() {
   return (
     <Layout>
       <_HeadersSection />
+      <_GallerySection />
       <_ThirdSection />
       <_MovementSection />
     </Layout>
@@ -31,6 +47,39 @@ const _HeadersSection = () => {
             dunia usaha, baik sebagai pelaku usaha maupun profesional Muslim sukses, untuk memberi pembekalan serta
             permodalan kepada kaum muslimin yang telah maupun dalam proses berhijrah.
           </Typography>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const _GallerySection = () => {
+  return (
+    <section className="flex gap-2 lg:gap-5 px-4 w-full justify-center py-8 lg:py-20 overflow-hidden">
+      <div className="relative z-10">
+        <div
+          className="absolute bottom-[-1rem] left-[-1.5rem] w-12 z-[-1] 
+        lg:bottom-[-5rem] lg:left-[-3.5rem] lg:w-36"
+        >
+          <Image src={CirclePurple} alt={"circle"} />
+        </div>
+        <div className="w-full h-full">
+          <Image src={Gallery1} alt={"gallerys"} />
+        </div>
+      </div>
+      <div className="flex-2 flex flex-col gap-2 lg:gap-5">
+        <div className="flex gap-2 lg:gap-5">
+          <div className="w-full">
+            <Image src={Gallery2} alt={"gallerys"} />
+          </div>
+          <div className="w-full">
+            <Image src={Gallery3} alt={""} />
+          </div>
+        </div>
+        <div className="row-span-1 self-end col-span-2">
+          <div className="w-full">
+            <Image src={Gallery4} alt={"gallerys"} style={{ height: "100%" }} />
+          </div>
         </div>
       </div>
     </section>
@@ -69,7 +118,13 @@ const _ThirdSection = () => {
 
 const _MovementSection = () => {
   return (
-    <section className="bg-primary pb-8 lg:pb-16">
+    <section className="bg-primary pb-8 lg:pb-16 relative">
+      <div className="hidden absolute lg:block top-80">
+        <Image src={CircleLeft} alt={"foto"} />
+      </div>
+      <div className="hidden absolute lg:block bottom-[-3rem] right-0">
+        <Image src={LinearIcon} alt={"foto"} />
+      </div>
       <div className="lg:max-w-screen-lg xl:max-w-screen-xl mx-auto">
         <div className="py-12">
           <div className="">
@@ -83,7 +138,7 @@ const _MovementSection = () => {
         </div>
         <div className="px-6 lg:px-12">
           {/* CARD1 */}
-          <div className="lg:flex justify-between items-center">
+          <div className="lg:flex justify-around items-center">
             <div className="xl:w-1/2">
               <Typography bold className="text-white text-2xl lg:text-[3.25rem]">
                 Takjub Akbar
@@ -97,12 +152,15 @@ const _MovementSection = () => {
                 </Typography>
               </div>
             </div>
-            <div className="mt-6 w-72 pl-4 lg:w-96">
-              <Image src={CardMove3} alt={"card-foto"} />
+            <div className="mt-6 w-72 pl-4 lg:w-96 relative">
+              <div className="absolute hidden lg:block top-[-2rem] left-[-0.1rem]">
+                <Image src={CircleRight} alt={"card-foto"} />
+              </div>
+              <Image src={CardMove3} alt={"card-foto"} style={{ zIndex: 2, position: "relative" }} />
             </div>
           </div>
           {/* E_BADAH */}
-          <div className="mt-12 lg:flex flex-row-reverse justify-between items-center">
+          <div className="mt-12 lg:flex flex-row-reverse justify-around items-center">
             <div className="xl:w-1/2">
               <Typography bold className="text-white text-2xl lg:text-[3.25rem]">
                 eBadah{" "}
@@ -114,8 +172,11 @@ const _MovementSection = () => {
                 </Typography>
               </div>
             </div>
-            <div className="mt-6 w-72 pl-4 lg:w-96">
-              <Image src={CardMove4} alt={"card-foto"} />
+            <div className="mt-6 w-72 pl-4 lg:w-96 relative">
+              <div className="absolute hidden lg:block top-[-9rem] right-[-7rem]">
+                <Image src={LinearIcon} alt={"card-foto"} />
+              </div>
+              <Image src={CardMove4} alt={"card-foto"} style={{ zIndex: 2, position: "relative" }} />
             </div>
           </div>
           {/* CARD 3 */}
@@ -131,7 +192,10 @@ const _MovementSection = () => {
                 </Typography>
               </div>
             </div>
-            <div className="mt-6 w-72 pl-4 lg:w-96">
+            <div className="mt-6 w-72 pl-4 lg:w-96 relative">
+              <div className="absolute hidden lg:block top-[7rem] left-[-4rem]">
+                <Image src={LinearStraight} alt={"card-foto"} style={{ zIndex: 2, position: "relative" }} />
+              </div>
               <Image src={CardMove1} alt={"card-foto"} />
             </div>
           </div>
@@ -148,8 +212,11 @@ const _MovementSection = () => {
                 </Typography>
               </div>
             </div>
-            <div className="mt-6 w-72 pl-4 lg:w-96">
-              <Image src={CardMove2} alt={"card-foto"} />
+            <div className="mt-6 w-72 pl-4 lg:w-96 relative">
+              <div className="absolute hidden lg:block top-[-4rem] right-[-0.1rem] rotate-45	">
+                <Image src={CircleRight} alt={"card-foto"} />
+              </div>
+              <Image src={CardMove2} alt={"card-foto"} style={{ zIndex: 2, position: "relative" }} />
             </div>
           </div>
         </div>
