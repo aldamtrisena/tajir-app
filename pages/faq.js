@@ -10,27 +10,27 @@ import Image from "next/image";
 const Faq = () => {
   return (
     <Layout>
-      <section className="mt-32 md:mt-32">
+      <section className="mt-16 md:mt-16 relative">
+        <div
+          className="absolute bottom-[1rem] opacity-0 lg:opacity-25 left-[-1.5rem] w-12 z-[-1] lg:bottom-[7rem] lg:left-[-3.5rem] lg:w-36"
+        >
+          <Image src={CirclePurple} alt={"circle"} />
+        </div>
+        <div
+          className="absolute opacity-0 lg:opacity-80 right-[0rem] w-12 z-[-1] lg:bottom-[15rem] lg:w-56"
+        >
+          <Image src={LinearIconYellow} alt={"linear"} />
+        </div>
         <div className="flex flex-col md:flex-col justify-center items-center h-full" >
+          <div
+            className="relative opacity-0 lg:opacity-80 lg:top-[0rem] left-[-28rem]"
+          >
+            <Image className="lg:w-26" src={DotsYellow} alt={"Dots"} />
+          </div>
           <Typography head1 primary bold className="lg:text-[32px] lg:leading-[65px]">Frequently Asked Questions</Typography>
           <div className="text-center px-2 md:w-[53rem] mb-32 mt-[20px] md:mt-[1rem]">
             <Typography>Semua yang ingin Kamu ketahui tentang Tajir dan Takjub Akbar. Jika Kamu tidak dapat menemukan jawaban yang Kamu cari, silakan hubungi tim Kami di tajir@gmail.com </Typography>
             <DisclosureDropdown />
-            <div
-              className="absolute bottom-[1rem] opacity-0 lg:opacity-25 left-[-1.5rem] w-12 z-[-1] lg:bottom-[7rem] lg:left-[-3.5rem] lg:w-36"
-            >
-              <Image src={CirclePurple} alt={"circle"} />
-            </div>
-            <div
-              className="absolute bottom-[-1rem] opacity-0 lg:opacity-80 right-[0rem] w-12 z-[-10] lg:bottom-[15rem] lg:right-[0] lg:w-56"
-            >
-              <Image src={LinearIconYellow} alt={"linear"} />
-            </div>
-            <div
-              className="absolute bottom-[-1rem] opacity-0 lg:opacity-80 top-[3.5rem] w-12 z-[-10] lg:bottom-[17rem] lg:left-[16rem] lg:w-56"
-            >
-              <Image src={DotsYellow} alt={"linear"} />
-            </div>
           </div>
         </div>
       </section>
