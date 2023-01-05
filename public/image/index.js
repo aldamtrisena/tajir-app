@@ -37,7 +37,9 @@ export { default as CirclePurple } from "public/image/circle-gallery.png";
 export { default as CircleLeft } from "public/image/circle-left.png";
 export { default as CircleRight } from "public/image/caircle-card1.png";
 export { default as LinearIcon } from "public/image/Meliuk-liuk.png";
+export { default as LinearIconYellow } from "public/image/Meliuk-liuk-yellow.png";
 export { default as Dots } from "public/image/Titik-titik.png";
+export { default as DotsYellow } from "public/image/Titik-titik-yellow.png";
 export { default as LinearStraight } from "public/image/Meliuk-liuk-2.png";
 
 export { default as Substract1 } from "public/image/Subtract-1.png";
